@@ -7,7 +7,7 @@ import os
 import inspect
 from pathlib import Path
 
-from systemsettings import SystemUtils
+from .systemsettings import SystemUtils
 
 def checkLogLevels(logType="info"):
   checklevels=list(logging._nameToLevel.keys())
@@ -58,7 +58,7 @@ class loggingUtils:
   def getLog(self):
     return self._instance._log
     
-  @staticmetod
+  @staticmethod
   def get_call_logstack(function_call_level=2):
     stack = inspect.stack(0)
     filename = stack[function_call_level][1]

@@ -2,18 +2,13 @@ import inspect
 import argparse
 import traceback
 
-class ArgsParser(argsparse.ArgumentParser):
-  def __init__(self, params, description='basic'):
-    self.parser_ = argsparse.ArgumentParser(description=description)
+class ArgsParser():
+  def __init__(self, description='basic'):
+    self.parser_ = argparse.ArgumentParser(description=description)
     self.argsToPass_ = {}
     self.argsToCapture = None
     self.myArgs        = None
-    
-    try:
-    except Exception:
-      traceback.print_exc()
-      self.argsToCapture = None
-    finally: pass
+   
     
   def initialise(self):
     if None == self.argsToCapture_:
@@ -26,9 +21,12 @@ class ArgsParser(argsparse.ArgumentParser):
       self.parser_.add_argument(str('--'+arg), type=str) 
       self.argsToPass_.update({arg:0})  
 
-  def addArgument(self, argument, defaultValue, helpDescription)      
+  def Parse(self):
+    return self.parser_.parse_known_args()
+     
+  def addArgument(self, argument, defaultValue, helpDescription):     
     self.parser_.add_argument(str('--'+argument), type=str, default=defaultValue, help=helpDescription)
-    self.argsToPass_.update({arg:0})
+    self.argsToPass_.update({argument:defaultValue})
   
   def parseCommandline(self):
     self.myArgs_, unknown=self.parser_.parse_known_args()

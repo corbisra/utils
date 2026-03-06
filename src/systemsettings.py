@@ -1,6 +1,6 @@
 import sys
 import os
-import confiparser
+import configparser
 import json
 
 class SystemUtils:
@@ -14,8 +14,9 @@ class SystemUtils:
     return cls._instance
   
   def __initialise(self):
-    self._instance.MYENVPATH= os.environ.get('TEMP_HOME')
-    self._instance.MYENV = os.environ('ENVIRONMENT')
+    self._instance.configJson_ = None
+    self._instance.MYENVPATH = os.environ.get('TEMP_HOME')
+    self._instance.MYENV     = os.environ.get('ENVIRONMENT')
     ini_path = os.path.join(SystemUtils().getConfigPath(),'config.ini')
     json_path = os.path.join(SystemUtils().getConfigPath(),'config.json')
     fileExists = True if os.path.exists(ini_path) or os.path.exists(json_path) else False
@@ -26,10 +27,10 @@ class SystemUtils:
      ini_path = os.path.join(SystemUtils().getConfigPath(),'config.ini')
      json_path = os.path.join(SystemUtils().getConfigPath(),'config.json')
      if not self._instance.MYENVPATH:
-         raise exception("neither HOME not TEMP_HOME setup")
+         raise Exception("neither HOME not TEMP_HOME setup")
     
     self._instance.config_ = self._instance.configJson = None
-    fileExists = True if os.path.exists(ini_path) 
+    fileExists = True if os.path.exists(ini_path) else False
     if fileExists:
       self._instance.config_ = configparser.ConfigParser()
       self._instance.config_.read(ini_path)
@@ -58,12 +59,12 @@ class SystemUtils:
   
   def getLogPath(self):
     if self.logPath_ is None:
-      self.logPath_ = str(self._instance.getBasePath()+'/logs/)
+      self.logPath_ = str(self._instance.getBasePath()+'/logs/')
     
     return self.logPath_
   
-  def getParamPath(self);
-    return str(self._instance.getBasePath()+'/params/)
+  def getParamPath(self):
+    return str(self._instance.getBasePath()+'/params/')
     
   def getConfig(self):
     return self._instance.config_
