@@ -1,0 +1,21 @@
+{
+  "BuildRunbook" : { "path":".", 
+                     "filename":"runbook.csv"
+  },
+  "DEV" :{
+    "log":"",
+    "database":{
+      "server":"server.serve",
+      "user":"u53r",
+      "password":"pa55",
+    },
+  },
+  "PROD":{
+     "log":"",
+     "database":{
+      "server":"server.serve",
+      "user":"u53r",
+      "password":"pa55",
+    },
+  }
+}
