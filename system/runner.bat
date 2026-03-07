@@ -1,6 +1,8 @@
 
 set PYTHONPATH=C:\scratch\svn\;.
 set HOME=C:\scratch\svn\baseutils
+set ENVIRONMENT=C:\scratch\svn\baseutils
+set ENVIRONMENT=DEV
 echo %PYTHONPATH%
 
 set var1=%1

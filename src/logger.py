@@ -8,29 +8,14 @@ import inspect
 from pathlib import Path
 
 from .systemsettings import SystemUtils
-
-def checkLogLevels(logType="info"):
-  checklevels=list(logging._nameToLevel.keys())
-  checkType=logType.upper()
-  for i in checklevels:
-    if checkType not in checklevels:
-      raise Exception("unable to log message due to message level"+logType)
     
-def printLog(string_, logType="info"):
-  checkLogLevels(logType) 
-  
-  filename,func,line=loggingUtils().get_call_logstack(function_call_level=2)
-  message = "{}--{}@{}:>\t{}".format(filename,func,line, string_)
-  logMessage=getattr(loggingUtils.getLog(), logType)
-  logMessage(logMessage)
-  
 
-class loggingUtils:
+class LoggingUtils:
   _instance = None
   
   def __new__(cls):
     if cls._instance is None:
-      cls._instance = super(loggingUtils, cls).__new__(cls)
+      cls._instance = super(LoggingUtils, cls).__new__(cls)
       cls._instance.__initialise()
       
     return cls._instance
@@ -57,13 +42,29 @@ class loggingUtils:
    
   def getLog(self):
     return self._instance._log
-    
+
+  def printLog(self, string_, logType="info"):
+    LoggingUtils.checkLogLevels(logType) 
+  
+    filename,func,line=self.get_call_logstack(function_call_level=2)
+    message = "{}--{}@{}:>\t{}".format(filename,func,line, string_)
+    logMessage=getattr(self.getLog(), logType)
+    logMessage(message)
+
+  @staticmethod
+  def checkLogLevels(logType="info"):
+    checklevels=list(logging._nameToLevel.keys())
+    checkType=logType.upper()
+    for i in checklevels:
+      if checkType not in checklevels:
+        raise Exception("unable to log message due to message level"+logType)
+  
   @staticmethod
   def get_call_logstack(function_call_level=2):
     stack = inspect.stack(0)
     filename = stack[function_call_level][1]
     if None is not stack[function_call_level].frame.f_locals.get('self'):
-      filename = "".format(filename, stack[function_call_level].frame.f_locals['self'].__class__.__name__)
+      filename = "{}:{}".format(filename, stack[function_call_level].frame.f_locals['self'].__class__.__name__)
     
     func = stack[function_call_level][3]
     line = stack[function_call_level][2]

@@ -4,6 +4,7 @@ import traceback
 import argparse
 import inspect
 import pdb
+import logging
 
 class UtilsDate:
     
@@ -96,14 +97,12 @@ class UtilsCommon:
   @staticmethod
   def MainModule():
       #runSystemBootstrap()
-      from baseutils.src import SystemUtils
+      from baseutils.src import SystemUtils, LoggingUtils
       
       runner = None
       myArgs = None
   
       try:
-        myEnv=SystemUtils()
-
         parser=argparse.ArgumentParser(description="")
         parser.add_argument(str('--Module'))
         parser.add_argument(str('--Class'))
@@ -115,18 +114,21 @@ class UtilsCommon:
            print(f'starting debug {myArgs.Debug} {type(myArgs.Debug)}')
            pdb.set_trace()
            
+        myEnv=SystemUtils()
+        logger = LoggingUtils()
         myFactory = UtilsCommon.abstractFactory( myArgs.Module )
         runner    = myFactory( myArgs.Class )
         runner    = runner(BuildRunbook=myArgs.BuildRunbook)
 
         '''
-        logLevel=myEnv.getConfig().get('LOG','level')
+        '''
+        logLevel=myEnv.getConfig().get('LOG','level').get('level')
         level = logging.DEBUG
-      
+        
         logLevel = logLevel.upper()
         level = logging.getLevelName(logLevel)
-        baseutils.src.LoggingUtils().getLog.setLevel(level)
-        '''        
+        logger.getLog().setLevel(level)
+                
         ## params = UtilsCommon.extractCommandLineParams(runner.getParams())
         ## if (None == params) or (None == runner):
         ##   raise Exception("No parameters or runner defined but required")

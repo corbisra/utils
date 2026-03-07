@@ -2,6 +2,7 @@ from typing import Protocol
 import importlib
 from baseutils.src import Processor
 global myArgs
+from baseutils.src import LoggingUtils
 
 class BuildRunbook(Processor):
     
@@ -19,7 +20,9 @@ class BuildRunbook(Processor):
          for the complete list of modules run through the aviable classes and 
          interrogate the __doc__ and __name__
        '''
-       
+       LoggingUtils().printLog("building runbook")
+       LoggingUtils().printLog("starting building runbook")
+
        for key,value in self.getkwargs().items():
          thisModule = importlib.import_module(value)
          

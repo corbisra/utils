@@ -1,21 +1,24 @@
 {
-  "BuildRunbook" : { "path":".", 
-                     "filename":"runbook.csv"
+  "GENERAL" : {
+   "BuildRunbook": {
+      "path": ".",
+      "filename": "runbook.csv"
+     },
+     "LOG": { "level": "DEBUG"
+     }
   },
-  "DEV" :{
-    "log":"",
-    "database":{
-      "server":"server.serve",
-      "user":"u53r",
-      "password":"pa55",
-    },
+  "DEV": {
+    "database": {
+      "server": "server.serve",
+      "user": "u53r",
+      "password": "pa55"
+    }
   },
-  "PROD":{
-     "log":"",
-     "database":{
-      "server":"server.serve",
-      "user":"u53r",
-      "password":"pa55",
-    },
+  "PROD": {
+    "database": {
+      "server": "server.serve",
+      "user": "u53r",
+      "password": "pa55"
+    }
   }
 }

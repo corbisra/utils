@@ -17,15 +17,15 @@ class SystemUtils:
     self._instance.configJson_ = None
     self._instance.MYENVPATH = os.environ.get('TEMP_HOME')
     self._instance.MYENV     = os.environ.get('ENVIRONMENT')
-    ini_path = os.path.join(SystemUtils().getConfigPath(),'config.ini')
-    json_path = os.path.join(SystemUtils().getConfigPath(),'config.json')
+    ini_path = os.path.join(SystemUtils().getConfigPath(),'baseconfig.ini')
+    json_path = os.path.join(SystemUtils().getConfigPath(),'baseconfig.json')
     fileExists = True if os.path.exists(ini_path) or os.path.exists(json_path) else False
     self.logPath_ = None
     
     if not fileExists:    
      self._instance.MYENVPATH= os.environ.get('HOME')
-     ini_path = os.path.join(SystemUtils().getConfigPath(),'config.ini')
-     json_path = os.path.join(SystemUtils().getConfigPath(),'config.json')
+     ini_path = os.path.join(SystemUtils().getConfigPath(),'baseconfig.ini')
+     json_path = os.path.join(SystemUtils().getConfigPath(),'baseconfig.json')
      if not self._instance.MYENVPATH:
          raise Exception("neither HOME not TEMP_HOME setup")
     
@@ -38,18 +38,18 @@ class SystemUtils:
     
     fileExists =  True if os.path.exists(json_path) else False
     if fileExists:
-      with open(json_file, "r") as json_file:
+      with open(json_path, "r") as json_file:
         self._instance.configjson_ = json.load(json_file)
         envExist = self._instance.configjson_.get(self._instance.MYENV)
         generalSectionExist = self._instance.configjson_.get('GENERAL')
         if envExist is not None:
-          elf._instance.configjson_ = envExist
+          self._instance.configjson_ = envExist
         
         if generalSectionExist is not None:
           self._instance.configjson_.update(generalSectionExist)
     
     if not self._instance.config_:
-      self._instance.config_ = self._instance.configJson_
+      self._instance.config_ = self._instance.configjson_
    
   def getBasePath(self):
     return str(self._instance.MYENVPATH) 
