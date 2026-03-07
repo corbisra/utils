@@ -1,20 +1,17 @@
 from typing import Protocol
 import importlib
+from baseutils.src import Processor
+global myArgs
 
-class BuildRunbook():
-    def __init__(self):
-       self.modules_  = None
-       self.path_     = None
-       self.filename_ = None
+class BuildRunbook(Processor):
     
-    
-    def initialise(self, modules, path, filename):
+    def initialise(self):
        '''
          create file and ensure path folder exists if not  create
+    
+       self.__dict__.update((key, False) for key in self.allowed_keys)
+       self.__dict__.update((key, value) for key, value in self.getkwargs() if key in self.allowed_keys)
        '''
-       self.modules_  = modules
-       self.path_     = path
-       self.filename_ = filename
  
     
     def process(self):
@@ -22,13 +19,19 @@ class BuildRunbook():
          for the complete list of modules run through the aviable classes and 
          interrogate the __doc__ and __name__
        '''
-       for mod in self.modules_:
-         module = importlib(mod)
+       
+       for key,value in self.getkwargs().items():
+         thisModule = importlib.import_module(value)
          
-         for key in dir(module):
-           methods = [ method for method in dir(obj) if callable(getattr(key, method)) and '__' not in method ]
-           for m in methods:
-             getattr(thisModule, m).__doc__
+         for key in dir(thisModule):
+           obj = getattr(thisModule, key)
+           if isinstance(obj, type):
+             print(f'{key}-isinstance')
+             if isinstance(obj(), getattr(thisModule, 'Processor')):
+               methods = [ method for method in dir(obj) if '_' not in method ]
+               print(methods)
+               for m in methods:
+                 getattr(obj, m).__doc__
         
     
     def finalise(self):

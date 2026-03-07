@@ -35,13 +35,13 @@ class loggingUtils:
       
     return cls._instance
   
-  def __initialise(self, whoami):
-    self._instance._log = logging.getLogger(whoami)
+  def __initialise(self):
+    self._instance._log = logging.getLogger()
     self._instance._log.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s-[%(levelname)s]-%(message)s')
     
     now = datetime.datetime.now()
-    dirname = str(SystemUtils.getLogPath()) + "/" + str(whoami)
+    dirname = str(SystemUtils().getLogPath()) + "/" + str()
     
     newDirectory = Path(dirname)
     newDirectory.mkdir(parents=True, exist_ok=True)

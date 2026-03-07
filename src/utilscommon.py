@@ -37,18 +37,15 @@ class UtilsCommon:
       for key in dir(thisModule):
         try:
           obj=getattr(thisModule, key)
-          ## print(f'{classname}:{key}:{type}:{obj}')
           
           if isinstance( obj, type ):
             if key == classname:
-              print(f'{classname}:{key}:{type}:{obj}')  
               newClass=getattr(thisModule, key)
-              return newClass()
+              return newClass
           else:
             if key == classname:
               raise ValidationError('Expected type %s for field %s, '\
-                            'found %s (type %s)' %\
-                            (type, classname, obj, type(obj)))
+                            'found %s (type %s)' % (type, classname, obj, type(obj)))
         except : pass
       raise Exception(moduleName+" package has no known Class : "+ classname)    
     
@@ -100,8 +97,7 @@ class UtilsCommon:
   def MainModule():
       #runSystemBootstrap()
       from baseutils.src import SystemUtils
-     
-  
+      
       runner = None
       myArgs = None
   
@@ -114,29 +110,30 @@ class UtilsCommon:
         parser.add_argument(str('--Debug'), default="0")
         parser.add_argument(str('--BuildRunbook'))
         
-        
-        myArgs, unkown=parser.parse_known_args()
-        
-        myFactory =UtilsCommon.abstractFactory( myArgs.Module )
-        runner = myFactory( myArgs.Class )
-        
+        myArgs, unkown = parser.parse_known_args()
         if 0 != int(myArgs.Debug):
            print(f'starting debug {myArgs.Debug} {type(myArgs.Debug)}')
            pdb.set_trace()
- 
+           
+        myFactory = UtilsCommon.abstractFactory( myArgs.Module )
+        runner    = myFactory( myArgs.Class )
+        runner    = runner(BuildRunbook=myArgs.BuildRunbook)
+
+        '''
         logLevel=myEnv.getConfig().get('LOG','level')
         level = logging.DEBUG
       
         logLevel = logLevel.upper()
         level = logging.getLevelName(logLevel)
-        baseutils.src.LoggingUtils().getLog.setLevel(level)         
+        baseutils.src.LoggingUtils().getLog.setLevel(level)
+        '''        
         ## params = UtilsCommon.extractCommandLineParams(runner.getParams())
         ## if (None == params) or (None == runner):
         ##   raise Exception("No parameters or runner defined but required")
           
-        runner.initialise(params)
-        runner.processing(params)
-        runner.finalise(params)
+        runner.initialise()
+        runner.process()
+        runner.finalise()
       except:
         traceback.print_exc()
 

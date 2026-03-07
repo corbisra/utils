@@ -1,7 +1,13 @@
 from abc import ABC
 from typing import Protocol
 
-class Processor(Protocol):
+class Processor(ABC):
+   def __init__(self, **kwargs):
+      self.attributes_ = kwargs
+
+   def getkwargs(self):
+        print(self.attributes_)
+        return self.attributes_
    '''
     This is the base class for all processors to enable location and identification
    '''
