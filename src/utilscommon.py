@@ -97,12 +97,14 @@ class UtilsCommon:
   @staticmethod
   def MainModule():
       #runSystemBootstrap()
-      from baseutils.src import SystemUtils, LoggingUtils
-      
+      from baseutils.src import SystemUtils, LoggingUtils      
       runner = None
       myArgs = None
   
       try:
+        myEnv     = SystemUtils()
+        logger    = LoggingUtils()
+          
         parser=argparse.ArgumentParser(description="")
         parser.add_argument(str('--Module'))
         parser.add_argument(str('--Class'))
@@ -114,8 +116,6 @@ class UtilsCommon:
            print(f'starting debug {myArgs.Debug} {type(myArgs.Debug)}')
            pdb.set_trace()
            
-        myEnv=SystemUtils()
-        logger = LoggingUtils()
         myFactory = UtilsCommon.abstractFactory( myArgs.Module )
         runner    = myFactory( myArgs.Class )
         runner    = runner(**myArgs.__dict__)
