@@ -105,7 +105,12 @@ class UtilsCommon:
         myEnv     = SystemUtils()
         logger    = LoggingUtils()
           
+        arguments= myEnv.getConfig().get("arguments")          
         parser=argparse.ArgumentParser(description="")
+        '''
+        for arg in arguments:
+          parser.add_argument(f'--{arg}')
+        '''
         parser.add_argument(str('--Module'))
         parser.add_argument(str('--Class'))
         parser.add_argument(str('--Debug'), default="0")
