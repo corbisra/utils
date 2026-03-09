@@ -97,30 +97,24 @@ class UtilsCommon:
   @staticmethod
   def MainModule():
       #runSystemBootstrap()
-      from baseutils.src import SystemUtils, LoggingUtils      
+      from utils.src import SystemUtils, LoggingUtils      
       runner = None
       myArgs = None
   
       try:
         myEnv     = SystemUtils()
         logger    = LoggingUtils()
-          
-        arguments= myEnv.getConfig().get("arguments")          
+        
+        arguments= myEnv.getConfig().get('arguments')          
         parser=argparse.ArgumentParser(description="")
-        '''
         for arg in arguments:
           parser.add_argument(f'--{arg}')
-        '''
-        parser.add_argument(str('--Module'))
-        parser.add_argument(str('--Class'))
-        parser.add_argument(str('--Debug'), default="0")
-        parser.add_argument(str('--BuildRunbook'))
         
-        myArgs, unkown = parser.parse_known_args()
+        myArgs, unkown = parser.parse_known_args()                
         if 0 != int(myArgs.Debug):
            print(f'starting debug {myArgs.Debug} {type(myArgs.Debug)}')
            pdb.set_trace()
-           
+        
         myFactory = UtilsCommon.abstractFactory( myArgs.Module )
         runner    = myFactory( myArgs.Class )
         runner    = runner(**myArgs.__dict__)

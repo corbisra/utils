@@ -1,4 +1,4 @@
-from utils.src.utilscommon import UtilsCommon
+from .utilscommon import UtilsCommon
 
 def MainRunner():
   UtilsCommon.MainModule()

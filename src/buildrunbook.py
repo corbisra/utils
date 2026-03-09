@@ -1,9 +1,9 @@
 from typing import Protocol
 import importlib
 import pandas as pd
-from baseutils.src import Processor
-global myArgs
-from baseutils.src import LoggingUtils
+
+from utils.src import LoggingUtils, Processor
+
 
 class BuildRunbook(Processor):
     
@@ -21,7 +21,7 @@ class BuildRunbook(Processor):
        '''
        LoggingUtils().printLog("starting building runbook")
 
-       for key,value in self.getkwargs().items():
+       for value in  self.getkwargs().get('BuildRunbook').split(','):
          thisModule = importlib.import_module(value)
          
          for key in dir(thisModule):

@@ -14,7 +14,7 @@ class SystemUtils:
     return cls._instance
   
   def __initialise(self):
-    self._instance.configJson_ = None
+    self._instance.configjson_ = None
     self._instance.MYENVPATH = os.environ.get('TEMP_HOME')
     self._instance.MYENV     = os.environ.get('ENVIRONMENT')
     ini_path = os.path.join(SystemUtils().getConfigPath(),'baseconfig.ini')
