@@ -15,7 +15,9 @@ class UtilsCommon:
       myArgs = None
   
       try:
-        myEnv     = SystemUtils()
+        ''' SystemUtils() must be constructed first for all config information
+        '''
+        myEnv     = SystemUtils()        
         logger    = LoggingUtils()
         
         arguments= myEnv.getConfig().get('arguments')          

@@ -5,7 +5,9 @@
       "path": ".",
       "filename": "runbook.csv"
      },
-     "LOG": { "level": "INFO"
+     "LOG": { "level": "INFO", 
+	          "pathtologfile":"som_path",
+	          "filename":"some"
      }
   },
   "DEV": {
