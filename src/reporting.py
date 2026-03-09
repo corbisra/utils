@@ -8,22 +8,31 @@ class Processor(ABC):
     classes inheriting will have this functionality
    '''
    def __init__(self, **kwargs):
-      self.attributes_ = kwargs
+       self.attributes_ = kwargs
 
    def getkwargs(self):
-        print(self.attributes_)
-        return self.attributes_
+       '''
+       read all parameters from command line anything else can be injected via config
+       '''
+       print(self.attributes_)
+       return self.attributes_
    '''
     This is the base class for all processors to enable location and identification
    '''
    def initialise(self) -> None:
-        raise NotImplementedError()
+       ''' abstract
+       '''
+       raise NotImplementedError()
         
    def process(self) -> None:
-        raise NotImplementedError()
+       ''' abstract
+       '''       
+       raise NotImplementedError()
         
    def finalise(self) -> None:
-        raise NotImplementedError()
+       ''' abstract
+       '''       
+       raise NotImplementedError()
         
         
 class Reporting(Processor):
@@ -34,12 +43,22 @@ class Reporting(Processor):
        super().__init__(**kwargs)   
        
    def initialise(self):
+       '''
+       standard initialisation context for user to ensure state is ready
+       '''
        print("none")
        
    def process(self):
+       '''
+       standard processing context for user reporting
+       '''       
        print("none")
        
    def finalise(self):
+       '''
+       standard completion context to ensure the data and any/all completion checks are green
+       '''       
+       
        print("none")    
 
 
@@ -51,11 +70,20 @@ class Calculator(Processor):
        super().__init__(**kwargs)  
        
    def initialise(self):
+       '''
+       standard initialisation context for user computaion ensure state is ready
+       '''       
        print("none")
        
    def process(self):
+       '''
+       standard processing context for user calcualtions
+       '''       
        print("none")
        
    def finalise(self):
+       '''
+       standard completion context to ensure the data and any/all completion checks are green
+       '''             
        print("none")      
 
