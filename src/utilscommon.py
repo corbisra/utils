@@ -118,7 +118,7 @@ class UtilsCommon:
         logger = LoggingUtils()
         myFactory = UtilsCommon.abstractFactory( myArgs.Module )
         runner    = myFactory( myArgs.Class )
-        runner    = runner(BuildRunbook=myArgs.BuildRunbook)
+        runner    = runner(**myArgs.__dict__)
 
         '''
         '''
