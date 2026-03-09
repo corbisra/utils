@@ -30,6 +30,9 @@ class Reporting(Processor):
    '''
     Reporting base class this is the root for all reporting implementations
    '''
+   def __init__(self, **kwargs):
+       super().__init__(**kwargs)   
+       
    def initialise(self):
        print("none")
        
@@ -44,7 +47,9 @@ class Calculator(Processor):
    '''
     Calculator base class this is the root for all Quant/Calculations implementations
    '''
-    
+   def __init__(self, **kwargs):
+       super().__init__(**kwargs)  
+       
    def initialise(self):
        print("none")
        

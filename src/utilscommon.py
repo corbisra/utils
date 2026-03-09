@@ -34,9 +34,7 @@ class UtilsCommon:
 
         '''
         '''
-        logLevel=myEnv.getConfig().get('LOG','level').get('level')
-        level = logging.DEBUG
-        
+        logLevel=myEnv.getConfig().get('LOG','level').get('level')       
         logLevel = logLevel.upper()
         level = logging.getLevelName(logLevel)
         logger.getLog().setLevel(level)

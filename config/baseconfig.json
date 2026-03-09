@@ -5,7 +5,7 @@
       "path": ".",
       "filename": "runbook.csv"
      },
-     "LOG": { "level": "DEBUG"
+     "LOG": { "level": "INFO"
      }
   },
   "DEV": {
