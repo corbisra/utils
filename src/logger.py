@@ -1,4 +1,7 @@
-
+'''
+  logger singleton class
+  this class is a system wide log ensure the same log is consistently formatted and shared across the python process
+'''
 import time
 import datetime
 import logging
@@ -9,11 +12,13 @@ from pathlib import Path
 
 from .systemsettings import SystemUtils
     
-
 class LoggingUtils:
   _instance = None
-  
+
   def __new__(cls):
+    '''
+      create the logger object and assign to _instance
+    '''      
     if cls._instance is None:
       cls._instance = super(LoggingUtils, cls).__new__(cls)
       cls._instance.__initialise()
