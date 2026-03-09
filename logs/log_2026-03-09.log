@@ -138,3 +138,56 @@
         database context
        
 2026-03-09 13:58:08,517-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->process:None
+2026-03-09 15:06:54,044-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--process@22:>	starting building runbook
+2026-03-09 15:06:54,048-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->finalise:
+         save the final file as a CSV or whatever format is required
+       
+2026-03-09 15:06:54,050-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->getkwargs:None
+2026-03-09 15:06:54,052-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->initialise:
+         create file and ensure path folder exists if not  create    
+       
+2026-03-09 15:06:54,054-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->process:
+         for the complete list of modules run through the aviable classes and 
+         interrogate the __doc__ and __name__
+       
+2026-03-09 15:06:54,056-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->processClassMethods:None
+2026-03-09 15:06:54,060-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->finalise:None
+2026-03-09 15:06:54,062-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->getkwargs:None
+2026-03-09 15:06:54,064-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->initialise:None
+2026-03-09 15:06:54,066-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->process:None
+2026-03-09 15:06:54,068-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->finalise:None
+2026-03-09 15:06:54,070-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->getkwargs:None
+2026-03-09 15:06:54,071-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->initialise:None
+2026-03-09 15:06:54,072-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->process:None
+2026-03-09 15:06:54,073-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->finalise:None
+2026-03-09 15:06:54,078-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->getkwargs:None
+2026-03-09 15:06:54,079-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->initialise:
+        database context
+       
+2026-03-09 15:06:54,081-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->process:None
+2026-03-09 15:06:54,085-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->finalise:
+         save the final file as a CSV or whatever format is required
+       
+2026-03-09 15:06:54,086-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->getkwargs:None
+2026-03-09 15:06:54,088-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->initialise:
+         create file and ensure path folder exists if not  create    
+       
+2026-03-09 15:06:54,090-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->process:
+         for the complete list of modules run through the aviable classes and 
+         interrogate the __doc__ and __name__
+       
+2026-03-09 15:06:54,092-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=BuildRunbook->processClassMethods:None
+2026-03-09 15:06:54,095-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->finalise:None
+2026-03-09 15:06:54,097-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->getkwargs:None
+2026-03-09 15:06:54,099-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->initialise:None
+2026-03-09 15:06:54,101-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Calculator->process:None
+2026-03-09 15:06:54,102-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->finalise:None
+2026-03-09 15:06:54,103-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->getkwargs:None
+2026-03-09 15:06:54,105-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->initialise:None
+2026-03-09 15:06:54,106-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Processor->process:None
+2026-03-09 15:06:54,108-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->finalise:None
+2026-03-09 15:06:54,110-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->getkwargs:None
+2026-03-09 15:06:54,112-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->initialise:
+        database context
+       
+2026-03-09 15:06:54,113-[INFO]-C:\Users\CORBR\projects\corbisra\utils\src\buildrunbook.py:BuildRunbook--processClassMethods@47:>	Class=Reporting->process:None
