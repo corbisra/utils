@@ -1,6 +1,6 @@
 {
   "GENERAL" : {
-   "arguments" : ["Module","Class","Debug","BuildRunbook"],
+   "arguments" : ["Module", "Class", "Debug", "BuildRunbook"],
    "BuildRunbook": {
       "path": ".",
       "filename": "runbook.csv"
