@@ -5,11 +5,12 @@
       "path": ".",
       "filename": "runbook.csv"
      },
-     "LOG": { "level": "INFO", 
+     "LOG": { "level": "DEBUG", 
 	          "pathtologfile":"som_path",
 	          "filename":"some"
      }
   },
+  
   "DEV": {
     "database": {
       "server": "server.serve",
@@ -17,6 +18,7 @@
       "password": "pa55"
     }
   },
+  
   "PROD": {
     "database": {
       "server": "server.serve",
