@@ -1,5 +1,6 @@
 from abc import ABC
 from typing import Protocol
+from utils.src import LoggingUtils
 
 class Processor(ABC):
    '''
@@ -14,8 +15,8 @@ class Processor(ABC):
        '''
        read all parameters from command line anything else can be injected via config
        '''
-       print(self.attributes_)
        return self.attributes_
+   
    '''
     This is the base class for all processors to enable location and identification
    '''
@@ -46,20 +47,19 @@ class Reporting(Processor):
        '''
        standard initialisation context for user to ensure state is ready
        '''
-       self.getkwargs()
+       LoggingUtils().printLog(self.getkwargs(), 'debug')
        
    def process(self):
        '''
        standard processing context for user reporting
        '''       
-       print("none")
+
        
    def finalise(self):
        '''
        standard completion context to ensure the data and any/all completion checks are green
        '''       
        
-       print("none")    
 
 
 class Calculator(Processor):
@@ -73,17 +73,17 @@ class Calculator(Processor):
        '''
        standard initialisation context for user computaion ensure state is ready
        '''       
-       print("none")
+       LoggingUtils().printLog(self.getkwargs(), 'debug')
        
    def process(self):
        '''
        standard processing context for user calcualtions
        '''       
-       print("none")
+
        
    def finalise(self):
        '''
        standard completion context to ensure the data and any/all completion checks are green
        '''             
-       print("none")      
+
 
