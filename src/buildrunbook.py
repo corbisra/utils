@@ -31,7 +31,7 @@ class BuildRunbook(Reporting):
          for key in dir(thisModule):
            obj = getattr(thisModule, key)
            if isinstance(obj, type):
-             print(f'{key}-isinstance')
+             LoggingUtils().printLog(f'{key}-isinstance', 'info')
              if isinstance(obj(), Processor):
                self.processClassMethods(obj, value)
         
@@ -40,7 +40,7 @@ class BuildRunbook(Reporting):
        '''
          save the final file as a CSV or whatever format is required
        '''
-       LoggingUtils().printLog(f'finalising {self.__class__}', 'info')
+       LoggingUtils().printLog(f'finalising will print until decision to save csv file decided', 'info')
        print(self.dfRunBook_ )
     
     

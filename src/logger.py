@@ -52,7 +52,7 @@ class LoggingUtils:
     LoggingUtils.checkLogLevels(logType) 
   
     filename,func,line=self.get_call_logstack(function_call_level=2)
-    message = "{}--{}@{}:>\t{}".format(filename,func,line, string_)
+    message = "{}--{}@{}:> {}".format(filename,func,line, string_)
     logMessage=getattr(self.getLog(), logType)
     logMessage(message)
 
