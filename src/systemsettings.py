@@ -47,8 +47,10 @@ class SystemUtils:
         
         if generalSectionExist is not None:
           self._instance.configjson_.update(generalSectionExist)
+          self.logPath_ = str(self._instance.configjson_.get('LOG').get('absolute_path_to_logfile'))
+          print(f'log path is :{self.logPath_}')
     
-    if not self._instance.config_:
+    if None is self._instance.config_:
       self._instance.config_ = self._instance.configjson_
    
   def getBasePath(self):

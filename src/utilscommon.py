@@ -41,17 +41,11 @@ class UtilsCommon:
         runner    = myFactory( myArgs.Class )
         runner    = runner(**myArgs.__dict__)
 
-        '''
-        '''
         logLevel=myEnv.getConfig().get('LOG','level').get('level')       
         logLevel = logLevel.upper()
         level = logging.getLevelName(logLevel)
         logger.getLog().setLevel(level)
-                
-        ## params = UtilsCommon.extractCommandLineParams(runner.getParams())
-        ## if (None == params) or (None == runner):
-        ##   raise Exception("No parameters or runner defined but required")
-          
+                          
         runner.initialise()
         runner.process()
         runner.finalise()

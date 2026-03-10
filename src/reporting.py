@@ -11,25 +11,23 @@ class Processor(ABC):
        self.attributes_ = kwargs
 
    def getkwargs(self):
-       '''
-       read all parameters from command line anything else can be injected via config
+       '''read all parameters from command line anything else can be injected via config
        '''
        return self.attributes_
    
+   ''' This is the base class for all processors to enable location and identification
    '''
-    This is the base class for all processors to enable location and identification
-   '''
-   def initialise(self) -> None:
+   def initialise(self, **kwargs) -> None:
        ''' abstract
        '''
        raise NotImplementedError()
         
-   def process(self) -> None:
+   def process(self, **kwargs) -> None:
        ''' abstract
        '''       
        raise NotImplementedError()
         
-   def finalise(self) -> None:
+   def finalise(self, **kwargs) -> None:
        ''' abstract
        '''       
        raise NotImplementedError()
@@ -41,17 +39,16 @@ class Reporting(Processor):
    def __init__(self, **kwargs):
        super().__init__(**kwargs)   
        
-   def initialise(self):
+   def initialise(self, **kwargs):
        ''' standard initialisation context for user to ensure state is ready
        '''
        LoggingUtils().printLog(self.getkwargs(), 'debug')
        
-   def process(self):
+   def process(self, **kwargs):
        ''' standard processing context for user reporting
        '''       
-
        
-   def finalise(self):
+   def finalise(self, **kwargs):
        ''' standard completion context to ensure the data and any/all completion checks are green
        '''       
        
@@ -63,17 +60,16 @@ class Calculator(Processor):
    def __init__(self, **kwargs):
        super().__init__(**kwargs)  
        
-   def initialise(self):
+   def initialise(self, **kwargs):
        ''' standard initialisation context for user computaion ensure state is ready
        '''       
        LoggingUtils().printLog(self.getkwargs(), 'debug')
        
-   def process(self):
+   def process(self, **kwargs):
        ''' standard processing context for user calcualtions
        '''       
-
        
-   def finalise(self):
+   def finalise(self, **kwargs):
        ''' standard completion context to ensure the data and any/all completion checks are green
        '''             
 

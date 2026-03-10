@@ -6,8 +6,8 @@
       "filename": "runbook.csv"
      },
      "LOG": { "level": "DEBUG", 
-	          "pathtologfile":"som_path",
-	          "filename":"some"
+	          "absolute_path_to_logfile":"c:\\users\\CORBR\\projects\\corbisra\\log",
+	          "filename":"not_used"
      }
   },
   
