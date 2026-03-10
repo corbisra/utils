@@ -2,7 +2,7 @@ from typing import Protocol
 import importlib
 import pandas as pd
 
-from utils.src import LoggingUtils, Reporting
+from utils.src import LoggingUtils, Processor, Reporting
 
 
 class BuildRunbook(Reporting):     
@@ -32,7 +32,7 @@ class BuildRunbook(Reporting):
            obj = getattr(thisModule, key)
            if isinstance(obj, type):
              print(f'{key}-isinstance')
-             if isinstance(obj(), getattr(thisModule, 'Processor')):
+             if isinstance(obj(), Processor):
                self.processClassMethods(obj, value)
         
     

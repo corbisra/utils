@@ -46,7 +46,7 @@ class Reporting(Processor):
        '''
        standard initialisation context for user to ensure state is ready
        '''
-       print("none")
+       self.getkwargs()
        
    def process(self):
        '''

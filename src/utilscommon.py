@@ -9,6 +9,11 @@ import logging
 class UtilsCommon:
     
   @staticmethod
+  def collapsePairListToDictionary(somelist):
+      unkownArgs = {somelist[i]: somelist[i + 1] for i in range(0, len(somelist), 2)}
+      return unkownArgs
+
+  @staticmethod
   def MainModule():
       from utils.src import SystemUtils, LoggingUtils      
       runner = None
@@ -25,11 +30,13 @@ class UtilsCommon:
         for arg in arguments:
           parser.add_argument(f'--{arg}')
         
-        myArgs, unkown = parser.parse_known_args()                
+        myArgs, unkown = parser.parse_known_args()
+        unkownArgs = UtilsCommon.collapsePairListToDictionary(unkown)
         if 0 != int(myArgs.Debug):
            print(f'starting debug {myArgs.Debug} {type(myArgs.Debug)}')
            pdb.set_trace()
-        
+              
+        myArgs.__dict__.update(unkownArgs)
         myFactory = UtilsCommon.abstractFactory( myArgs.Module )
         runner    = myFactory( myArgs.Class )
         runner    = runner(**myArgs.__dict__)
