@@ -11,7 +11,7 @@ set var2=%2
 set var3=%3
 set var4=%4
 set var5=%5
-python -m utils.src --Module %var1% --Class %var2% --Debug %var3% --BuildRunbook %var4% --ValueDate 
+python -m utils.src --Module %var1% --Class %var2% --Debug %var3%
 REM &>>1 spinup.log
 
 

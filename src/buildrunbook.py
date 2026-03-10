@@ -23,7 +23,7 @@ class BuildRunbook(Reporting):
        LoggingUtils().printLog(f'executing process {self.__class__}', 'info')
        LoggingUtils().printLog("starting building runbook", 'debug')
 
-       for value in  self.getkwargs().get('BuildRunbook').split(','):
+       for value in  self.getkwargs().get('Packages').split(','):
          thisModule = importlib.import_module(value)
          
          for key in dir(thisModule):
