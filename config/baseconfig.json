@@ -15,7 +15,8 @@
     "database": {
       "server": "server.serve",
       "user": "u53r",
-      "password": "pa55"
+      "password": "pa55",
+	  "root_path_to_sql_files": "c:\\users\\CORBR\\projects\\corbisra\\sql"
     }
   },
   

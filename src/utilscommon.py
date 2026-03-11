@@ -61,14 +61,13 @@ class UtilsCommon:
       for key in dir(thisModule):
         try:
           obj=getattr(thisModule, key)          
-          if isinstance( obj, type ):
+          if isinstance( obj, type):
             if key == classname:
               newClass=getattr(thisModule, key)
               return newClass
           else:
             if key == classname:
-              raise ValidationError('Expected type %s for field %s, '\
-                            'found %s (type %s)' % (type, classname, obj, type(obj)))
+              raise ValidationError('Expected type %s for field %s, found %s (type %s)' % (type, classname, obj, type(obj)))
         except : pass
       raise Exception(moduleName+" package has no known Class : "+ classname)    
     
