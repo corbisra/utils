@@ -13,6 +13,9 @@ from pathlib import Path
 from .systemsettings import SystemUtils
     
 class LoggingUtils:
+   ''' LoggingUtils Singleton to ensure only one log exists per process
+   '''
+   
   _instance = None
 
   def __new__(cls):

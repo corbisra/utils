@@ -4,6 +4,10 @@ import configparser
 import json
 
 class SystemUtils:
+   ''' SystemUtils Singleton to ensure consistent access to the config and base environment
+       -- this class is not Thread safe
+   '''
+   
   _instance = None
   
   def __new__(cls):

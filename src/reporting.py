@@ -47,7 +47,7 @@ class Transformation(Processor):
        
    def process(self, **kwargs):
        ''' standard processing context for user reporting
-       '''       
+       '''
        
    def finalise(self, **kwargs):
        ''' standard completion context to ensure the data and any/all completion checks are green
