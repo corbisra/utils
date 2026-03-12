@@ -31,7 +31,27 @@ class Processor(ABC):
        ''' abstract
        '''       
        raise NotImplementedError()
-        
+
+
+
+class Transformation(Processor):
+   ''' Transformation base class this is the root for all reporting implementations
+   '''
+   def __init__(self, **kwargs):
+       super().__init__(**kwargs)   
+       
+   def initialise(self, **kwargs):
+       ''' standard initialisation context for user to ensure state is ready
+       '''
+       LoggingUtils().printLog(self.getkwargs(), 'debug')
+       
+   def process(self, **kwargs):
+       ''' standard processing context for user reporting
+       '''       
+       
+   def finalise(self, **kwargs):
+       ''' standard completion context to ensure the data and any/all completion checks are green
+       '''        
         
 class Reporting(Processor):
    ''' Reporting base class this is the root for all reporting implementations

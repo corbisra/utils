@@ -50,7 +50,8 @@ class UtilsCommon:
         runner.process()
         runner.finalise()
       except:
-        traceback.print_exc()    
+        traceback.print_exc()   
+        raise Exception(f'Failure caught while running {runner.__name__}')        
         
   
   @staticmethod

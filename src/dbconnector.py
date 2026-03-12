@@ -32,6 +32,9 @@ class DBODBCConnector():
     
       
   def query(self, query="", isFile=True, **kwargs):
+    '''
+    pass the sql query or fully qualified path location and associated parameters to be passed
+    '''
     dfResult = None
     fileToOpen = str(self._rootFolder) + "/"+ str(query)
     
@@ -40,6 +43,8 @@ class DBODBCConnector():
       if isFile and fileExists:
          query = open(fileToOpen, "r").read()
       
+      ''' inject into the query the required parameters
+      ''' 
       query = query.format(**kwargs)
       
       dfResult=pd.read_sql_query(query, self._sfCon)
@@ -47,7 +52,8 @@ class DBODBCConnector():
       ## cursor.execute("SELECT * from riskmgmt.datamart.RMA_STRESS_SCENARIOS")
       ## dfResult = pd.read_sql(query, self._sfCon)
       dfResult = None if dfResult.empty else dfResult
-    except: pass
+    except: 
+        raise Exception("DB Issue please run --Debug 1 and verify")
               
     return dfResult    
   
