@@ -1,3 +1,13 @@
+'''
+ Purpose Define the system level base classes. From an abstract perspective everything is a Processor with the common 
+ elements of:
+   - initialise() - state 
+   - process()    - managing state and behaviour
+   - finalise()   - complete and save down
+ author - Raffaele Corbisiero
+ 
+'''
+
 from abc import ABC
 from typing import Protocol
 from utils.src import LoggingUtils
