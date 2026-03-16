@@ -1,3 +1,7 @@
+'''
+  system environment and config singleton class
+  this class is a system wide log ensure the same log is consistently formatted and shared across the python process
+'''
 import sys
 import os
 import configparser
