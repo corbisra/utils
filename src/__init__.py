@@ -1,3 +1,6 @@
+'''
+ author - Raffaele Corbisiero
+'''
 from .systemsettings import SystemUtils
 from .utilsdate      import UtilsDate
 from .logger         import LoggingUtils
